@@ -1,0 +1,173 @@
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button,
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius: 2em;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+  height: 3.5em;
+  letter-spacing: 0.1em;
+  line-height: 3.65em;
+  padding: 0 3em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.wrapper {
+  padding: 5em 0 3em 0;
+  position: relative;
+}
+
+.wrapper > .inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70em;
+  max-width: 100%;
+}
+
+.wrapper.style2 {
+  background-color: #fafafa;
+  color: #777;
+}
+
+.wrapper.style2.alt {
+  border-top-color: rgba(144, 144, 144, 0.25);
+}
+
+
+.wrapper.style2 .spotlight {
+  background-color: white;
+  border-bottom-color: rgba(144, 144, 144, 0.25);
+}
+
+.image {
+  border-radius: 0;
+  border: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.spotlight {
+  height: 364px;
+}
+
+.spotlight .image {
+  width: 36%;
+}
+
+.spotlight .content {
+  padding: 0em 3em 0.1em 3em;
+  width: 55%;
+  display: inline-block;
+  position: relative;
+  top: -132px;
+}
+
+.spotlight .actions {
+  padding: 0;
+}
+
+ul.actions li {
+  display: inline-block;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.wrapper.style2 .spotlight {
+  background-color: white;
+  border-bottom: solid 2px;
+  border-bottom-color: rgba(144, 144, 144, 0.25);
+  margin-bottom: 3em;
+}
+
+.wrapper.style2.alt {
+  border-top: solid 2px;
+  border-top-color: rgba(144, 144, 144, 0.25);
+}
+
+.wrapper.style2 input[type='submit'].alt, .wrapper.style2 input[type='reset'].alt, .wrapper.style2 input[type='button'].alt, .wrapper.style2 button.alt, .wrapper.style2 .button.alt {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px rgba(144, 144, 144, 0.25);
+  color: #666 !important;
+}
+
+.wrapper.style2 input[type='submit'].alt:active, .wrapper.style2 input[type='reset'].alt:active, .wrapper.style2 input[type='button'].alt:active, .wrapper.style2 button.alt:active, .wrapper.style2 .button.alt:active {
+  background-color: rgba(144, 144, 144, 0.2);
+}
+
+.wrapper.style2 input[type='submit'].alt:hover, .wrapper.style2 input[type='reset'].alt:hover, .wrapper.style2 input[type='button'].alt:hover, .wrapper.style2 button.alt:hover, .wrapper.style2 .button.alt:hover {
+  background-color: rgba(144, 144, 144, 0.075);
+}
+
+figure {
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+}
+
+figure img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  transition: transform 0.4s;
+}
+
+figcaption {
+  position: absolute;
+  left: 0;
+  padding: 20px;
+  background: #2c3f52;
+  color: #ed4e6e;
+  height: 100px;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+  transition: transform 0.4s, opacity 0.1s 0.3s;
+}
+
+figure:hover img,
+figure.cs-hover img {
+  -webkit-transform: translateY(-50px);
+  -moz-transform: translateY(-50px);
+  -ms-transform: translateY(-50px);
+  transform: translateY(-50px);
+}
+
+figure:hover figcaption,
+figure.cs-hover figcaption {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.1s;
+  transition: transform 0.4s, opacity 0.1s;
+}

@@ -1,0 +1,7 @@
+mutation databaseCreateUser($name: String!, $phone: String!) {
+    databaseCreateUser( name: $name, phone: $phone){
+        name,
+        phone,
+        email,
+    }
+}

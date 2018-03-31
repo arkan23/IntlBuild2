@@ -1,0 +1,75 @@
+.container {
+  display: grid;
+  grid-template-columns: 15% 1fr 1fr 15%;
+  grid-template-rows: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  color: #777 !important;
+}
+
+.skillbar {
+  position: relative;
+  display: block;
+  margin-top: 21px;
+  margin-bottom: 90px;
+  width: 100%;
+  background: #eee;
+  height: 10px;
+  border-radius: 3px;
+  transition: 0.1s linear;
+  transition-property: width, background-color;
+}
+
+.skillbarTitle {
+  position: absolute;
+  top: -34px;
+  left: 0;
+  width: 100%;
+  font-weight: bold;
+  font-size: 13px;
+  color: #66668b;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.skillbarTitle span {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.skillbarBar {
+  height: 10px;
+  width: 0;
+  background: #00bc8a;
+  border-radius: 3px;
+  -webkit-transition: width 1s ease-in;
+  -o-transition: width 1s ease-in;
+  transition: width 1s ease-in;
+}
+
+.skillBarPercent {
+  position: relative;
+  top: 0;
+  font-size: 11px;
+  color: #fff;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.formContainer {
+  width: 60%;
+  margin-bottom: 40px;
+}
+
+.formContainer select {
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.formContainer input {
+  background-color: transparent !important;
+  /*width: -webkit-fill-available !important;*/
+  border-radius: 5px !important;
+}

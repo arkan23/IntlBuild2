@@ -1,0 +1,176 @@
+.wrapper {
+  padding: 5em 0 3em 0;
+  position: relative;
+}
+
+.wrapper > .inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70em;
+  max-width: 100%;
+}
+
+.split {
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-bottom: 2em;
+}
+
+.split > * {
+  width: 44%;
+}
+
+.split > *:nth-child(odd) {
+  padding-right: 3em;
+}
+
+.split > *:nth-child(even) {
+  padding-left: 3em;
+  border-left: solid 2px;
+  border-left-color: rgba(144, 144, 144, 0.25);
+}
+
+.row {
+  border-bottom: solid 1px transparent;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.row::after, .row::before {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+/*.row.uniform {
+  margin: -2em 0 -1px -2em;
+}*/
+
+.row > * {
+  float: left;
+}
+
+input[type='text'], input[type='password'], input[type='email'], select {
+  height: 2.75em;
+}
+
+input[type='text'], input[type='password'], input[type='email'], select, textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: none;
+  border: solid 1px;
+  display: block;
+  outline: 0;
+  padding: 0 1em;
+  text-decoration: none;
+}
+
+form.alt input[type='text'], form.alt input[type='password'], form.alt input[type='email'], form.alt select, form.alt textarea {
+  background-color: transparent;
+}
+
+input[type='text'], input[type='password'], input[type='email'], select, textarea {
+  background: rgba(144, 144, 144, 0.075);
+  border-color: rgba(144, 144, 144, 0.25);
+}
+
+input[type='text'], input[type='password'], input[type='email'], select, textarea {
+  background: rgba(144, 144, 144, 0.01);
+  border-color: rgba(144, 144, 144, 0.25);
+  transition: border-color 0.5s ease;
+}
+input[type='text']:focus, input[type='password']:focus, input[type='email']:focus, select:focus, textarea:focus {
+  border-color: rgba(0, 214, 157, 0.25);
+}
+
+ul.contact {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.split > * > :last-child, .split > * > :last-child > :last-child, .split > * > :last-child > :last-child > :last-child {
+  margin-bottom: 0;
+}
+
+ul.contact li {
+  text-decoration: none;
+  padding: 0.65em 0 0 2em;
+}
+
+ul.contact li:first-child {
+  padding-top: 0;
+}
+
+ul.contact li a {
+  transition: color 0.2s ease;
+  color: inherit;
+  text-decoration: none;
+}
+
+.faStyle {
+  margin-right: 10px;
+  color: #00bc8a;
+}
+
+.footer {
+  background-color: #fafafa;
+  border-top: solid 2px rgba(144, 144, 144, 0.25);
+  color: #777;
+}
+
+.footer .copyright {
+  color: #bbb;
+  font-size: 0.9em;
+  padding: 4em 2em;
+  text-align: center;
+}
+
+.footer a {
+  transition: color 0.2s ease;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer a:hover {
+
+  color: #00BC8A !important;
+}
+
+ul.contact li a:hover {
+  color: #00BC8A !important;
+}
+
+.contactName {
+
+}
+
+.contactEmail {
+
+}
+
+.contactText {
+  padding: 2em 0 0 0em;
+  width: 91%;
+}
+
+.buttonContact {
+  list-style: none;
+  padding: 0;
+}
+
+::-webkit-input-placeholder {color: #d8d8d8;}
+::-moz-placeholder {color: #d8d8d8;}/* Firefox 19+ */
+:-moz-placeholder {color: #d8d8d8;}/* Firefox 18- */
+:-ms-input-placeholder {color: #d8d8d8;}

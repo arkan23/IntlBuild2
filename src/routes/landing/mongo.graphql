@@ -1,0 +1,14 @@
+query SaveUser {
+    databaseGetUser(email: "arkan23a@yandex.ru") {
+        email
+        createdAt
+        updatedAt
+    }
+    databaseGetAllUsers {
+        email
+        name
+        phone
+        createdAt
+        updatedAt
+    }
+}
