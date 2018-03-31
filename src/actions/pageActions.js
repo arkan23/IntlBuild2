@@ -12,12 +12,9 @@ export function toggleModalDisplay(stateValue) {
         payload: !stateValue,
     };
 }
-export function saveUserData(userValue, phoneValue) {
+export function saveUserData(users) {
     return {
         type: SAVE_USER,
-        payload: {
-            user: userValue,
-            phone: phoneValue,
-        },
+        payload: users
     };
 }

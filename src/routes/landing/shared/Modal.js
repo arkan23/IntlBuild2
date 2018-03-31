@@ -32,6 +32,7 @@ class Modal extends React.Component {
                     }
                 }
         });
+        this.props.saveUserData(data);
         this.props.toggle(this.props.modalState);
     };
 
@@ -91,6 +92,7 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
+    saveUserData: PropTypes.func.isRequired,
     toggle: PropTypes.func.isRequired,
     modalState: PropTypes.bool.isRequired,
     data: PropTypes.object.isRequired,

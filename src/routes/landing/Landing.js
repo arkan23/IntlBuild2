@@ -25,11 +25,13 @@ import s from './Landing.css';
 import {
     toggleNavbarDisplay,
     toggleModalDisplay,
+    saveUserData,
 } from '../../actions/pageActions';
 
 class Landing extends React.Component {
     static propTypes = {
         toggleNavbar: PropTypes.func.isRequired,
+        saveUserData: PropTypes.func.isRequired,
         navState: PropTypes.bool.isRequired,
         toggleModal: PropTypes.func.isRequired,
         modalState: PropTypes.bool.isRequired,
@@ -42,6 +44,7 @@ class Landing extends React.Component {
             navState,
             modalState,
             toggleModal,
+            saveUserData,
         } = this.props;
         return (
             <div className={s.mainLayer}>
@@ -55,6 +58,7 @@ class Landing extends React.Component {
                     modalState={modalState}
                     toggle={toggleModal}
                     data={this.props.graphql}
+                    saveUserData={saveUserData}
                 />
                 <Footer />
                 <div />
@@ -69,6 +73,7 @@ const mapState = state => ({
 });
 
 const mapDispatch = {
+    saveUserData: saveUserData,
     toggleNavbar: toggleNavbarDisplay,
     toggleModal: toggleModalDisplay,
 };
