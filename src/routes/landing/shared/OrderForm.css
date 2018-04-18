@@ -1,0 +1,43 @@
+.orderContainer {
+    height: 600px;
+    background-image: url("../../../../public/images/overlay2.png");
+}
+.orderForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". name phone ."
+        ". input input .";
+    text-align: center;
+    text-align: -webkit-center;
+}
+.orderContainer h2 {
+    text-align: center;
+    margin-top: 90px;
+}
+
+.orderP {
+    text-align: center;
+}
+
+.itemName {
+    grid-area: name;
+    width: 85%;
+}
+.itemPhone {
+    grid-area: phone;
+    width: 85%;
+}
+.itemInput {
+    margin-top: 40px;
+    grid-area: input;
+}
+.orderContainer button {
+    background-color: #ffaf45;
+    transition: background-color ease-in-out 0.2s;
+}
+.orderContainer button:hover {
+    background-color: #ff9843;
+}

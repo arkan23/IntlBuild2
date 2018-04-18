@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 // import Link from '../../../components/Link/Link';
-import SaveUser from '../mongo.graphql';
+import SaveUser from '../../polling/mongo.graphql';
 import databaseCreateUser from '../create.graphql';
 import s from './Modal.css';
 import {injectIntl} from "react-intl";
@@ -15,6 +15,7 @@ class Modal extends React.Component {
 
 
     async sendData() {
+        // FIXME revert then its will be need
         const nameUser = this.refs.name.value;
         const phoneUser = this.refs.phone.value;
 
@@ -33,12 +34,22 @@ class Modal extends React.Component {
                 }
         });
         this.props.saveUserData(data);
+        fetch("/email",
+            {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                },
+                body: 'name=' + nameUser + '&phone=' + phoneUser
+            })
+            .then(function(res){ return res.json(); });
+
         this.props.toggle(this.props.modalState);
     };
 
     render() {
         const {modalState, toggle , data} = this.props;
-        console.log(this.props);
+        // console.log(this.props);
         return [
             <div
                 key="modal"

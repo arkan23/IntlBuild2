@@ -12,13 +12,13 @@ const Navbar = props => {
     const { navState, toggle } = props;
     return (
         <nav>
-            <div className={s.TopContent}>
+{/*            <div className={s.TopContent}>
                 <div className={s.logo}>LOGO</div>
                 <div className={s.TopContacts}>
                     <div className={s.Phone}>8-920-029-9031</div>
                     <div className={s.Label}>Ежедневно с 8:00 до 22:00</div>
                 </div>
-            </div>
+            </div>*/}
             <button className={s.menuIcon} onClick={() => toggle(navState)}>
                 <div className={s.container}>
                     <div
@@ -47,17 +47,17 @@ const Navbar = props => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className={s.link}>
+                        <Link to="/" className={s.link} data-hover="About">
                             About
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className={s.link}>
+                        <a href="#catalog" className={s.link} data-hover="Product">
                             Product
-                        </Link>
+                        </a>
                     </li>
                     <li>
-                        <Link to="/" className={s.link}>
+                        <Link to="/" className={s.link} data-hover="Contacts">
                             Contacts
                         </Link>
                     </li>

@@ -10,3 +10,8 @@ export const SET_LOCALE_ERROR = 'SET_LOCALE_ERROR';
 export const TOGGLE_BUTTON = 'TOGGLE_BUTTON';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const SAVE_USER = 'SAVE_USER';
+
+
+// Polling
+
+export const SAVE_POLLING = 'SAVE_POLLING';

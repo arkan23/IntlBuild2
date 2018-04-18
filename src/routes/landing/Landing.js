@@ -12,6 +12,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+
 import Navbar from './shared/Navbar';
 import Header from './shared/Header';
 import Footer from './shared/Footer';
@@ -20,6 +21,9 @@ import Catalog from './shared/Catalog';
 import Features from './shared/Features';
 import TimeLine from './shared/TimeLine';
 import Calculator from './shared/Calculator';
+import OrderForm from './shared/OrderForm';
+import Map from "./shared/Map";
+
 import s from './Landing.css';
 
 import {
@@ -45,21 +49,31 @@ class Landing extends React.Component {
             modalState,
             toggleModal,
             saveUserData,
+            graphql,
         } = this.props;
         return (
             <div className={s.mainLayer}>
-                <Navbar navState={navState} toggle={toggleNavbar} />
-                <Header modalState={modalState} toggle={toggleModal} />
+                <Navbar
+                    navState={navState}
+                    toggle={toggleNavbar}
+                />
+                <Header
+                    modalState={modalState}
+                    toggle={toggleModal}
+                />
                 <Features />
                 <Catalog />
+                <OrderForm data={graphql} />
                 <Calculator />
                 <TimeLine />
+                <OrderForm data={graphql} />
                 <Modal
                     modalState={modalState}
                     toggle={toggleModal}
-                    data={this.props.graphql}
+                    data={graphql}
                     saveUserData={saveUserData}
                 />
+                <Map />
                 <Footer />
                 <div />
             </div>

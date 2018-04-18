@@ -41,6 +41,7 @@ import configureStore from './store/configureStore';
 import { setRuntimeVariable } from './actions/runtime';
 import { setLocale } from './actions/intl';
 import config from './config';
+import nodemailer from '../node_modules/nodemailer/lib/nodemailer';
 
 process.on('unhandledRejection', (reason, p) => {
   console.error('Unhandled Rejection at:', p, 'reason:', reason);
@@ -145,6 +146,97 @@ app.use('/graphql', graphqlMiddleware);
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
+
+app.post('/email', async (req, res, next) => {
+
+// Generate SMTP service account from ethereal.email
+
+
+        // NB! Store the account object values somewhere if you want
+        // to re-use the same account for future mail deliveries
+        // Create a SMTP transporter object
+        let transporter = nodemailer.createTransport(
+            {
+                service: 'gmail',
+                auth: {
+                    user: 'arkan23a@gmail.com',
+                    pass: 'arkan23ataha3173'
+                }
+            },
+            {
+                // default message fields
+
+                // sender info
+                from: 'BuildCompany <arkan23a@gmail.com>',
+                headers: {
+                    'X-Laziness-level': 1000 // just an example header, no need to use this
+                }
+            }
+        );
+
+        // Message object
+        let message = {
+            // Comma separated list of recipients
+            to: 'Ark <arkan23a@yandex.ru>',
+
+            // Subject of the message
+            subject: 'Nodemailer is unicode friendly ✔',
+
+            // plaintext body
+            text: 'Hello to myself!',
+
+            // HTML body
+            html:
+            '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
+            '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>' +
+            '<p>' + req.body.name + '</p><p>' + req.body.phone + '</p>',
+
+            // An array of attachments
+            attachments: [
+                // String attachment
+                {
+                    filename: 'notes.txt',
+                    content: 'Some notes about this e-mail',
+                    contentType: 'text/plain' // optional, would be detected from the filename
+                },
+
+                // Binary Buffer attachment
+                {
+                    filename: 'image.png',
+                    content: Buffer.from(
+                        'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD/' +
+                        '//+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4U' +
+                        'g9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC',
+                        'base64'
+                    ),
+
+                    cid: 'note@example.com' // should be as unique as possible
+                },
+
+                // File Stream attachment
+                {
+                    filename: 'nyan cat ✔.gif',
+                    path: '/home/ark/Documents/programs/intlBuild2/public/images/nyan.gif',
+                    cid: 'arkan23a@yandex.ru' // should be as unique as possible
+                }
+            ]
+        };
+
+        transporter.sendMail(message, (error, info) => {
+            if (error) {
+                console.log('Error occurred');
+                console.log(error.message);
+                return process.exit(1);
+            }
+
+            console.log('Message sent successfully!');
+
+            // only needed when using pooled connections
+            transporter.close();
+        });
+
+});
+
 app.get('*', async (req, res, next) => {
   try {
     const css = new Set();
