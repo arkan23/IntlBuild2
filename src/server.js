@@ -135,7 +135,7 @@ app.post(
         res.redirect('/');
 
     });
-app.get(
+/*app.get(
   '/login/facebook',
   passport.authenticate('facebook', {
     scope: ['email', 'user_location'],
@@ -154,7 +154,7 @@ app.get(
     res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
     res.redirect('/');
   },
-);
+);*/
 
 //
 // Register API middleware
