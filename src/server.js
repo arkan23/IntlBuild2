@@ -31,7 +31,11 @@ import Html from './components/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 import createFetch from './createFetch';
-import passport from './passport';
+
+import passport from './passport/passport';
+//import passport from './passport/passportLoc';
+//import passport from './passport/passportJwt';
+
 import router from './router';
 import models from './data/models';
 import schema from './data/schema';
@@ -89,26 +93,48 @@ app.use(bodyParser.json());
 //
 // Authentication
 // -----------------------------------------------------------------------------
-app.use(
-  expressJwt({
-    secret: config.auth.jwt.secret,
-    credentialsRequired: false,
-    getToken: req => req.cookies.id_token,
-  }),
+app.get(
+    /\/(?!login)/,
+    expressJwt({
+        secret: config.auth.jwt.secret,
+        credentialsRequired: false,
+        getToken: req => req.cookies.id_token,
+    }),
+    (req, res, next) => {
+        console.log("USER DATA!!!!!!!");
+        console.log(req.user);
+        if (!req.user) { res.redirect('/login')}
+        next();
+    }
 );
 // Error handler for express-jwt
 app.use((err, req, res, next) => {
-  // eslint-disable-line no-unused-vars
-  if (err instanceof Jwt401Error) {
-    console.error('[express-jwt-error]', req.cookies.id_token);
-    // `clearCookie`, otherwise user can't use web-app until cookie expires
-    res.clearCookie('id_token');
-  }
-  next(err);
+    // eslint-disable-line no-unused-vars
+    if (err instanceof Jwt401Error) {
+        console.error('[express-jwt-error]', req.cookies.id_token);
+        // `clearCookie`, otherwise user can't use web-app until cookie expires
+        res.clearCookie('id_token');
+    }
+    next(err);
 });
 
 app.use(passport.initialize());
 
+app.post(
+    '/login',
+/*    passport.authenticate('local', {
+        session: false,
+    }),*/
+    (req, res, next) => {
+
+        console.log(req.body);
+        console.log('Jwt callback worked!!');
+        const expiresIn = 60 * 60 * 24 * 180; // 180 days
+        const token = jwt.sign(req.body, config.auth.jwt.secret, { expiresIn });
+        res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
+        res.redirect('/');
+
+    });
 app.get(
   '/login/facebook',
   passport.authenticate('facebook', {

@@ -7,7 +7,7 @@ import {injectIntl} from "react-intl";
 import {connect} from "react-redux";
 import {saveData} from "../../actions/pollingActions";
 
-import SaveUser from '../polling/mongo.graphql';
+import SaveUser from '../../core/queryGql/mongo.graphql';
 
 class Polling extends React.Component {
     constructor(props) {

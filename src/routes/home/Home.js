@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { FormattedRelative } from 'react-intl';
 import { graphql, compose } from 'react-apollo';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import newsQuery from './news.graphql';
+import newsQuery from '../../core/queryGql/news.graphql';
 import s from './Home.css';
 
 class Home extends React.Component {

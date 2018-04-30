@@ -8,7 +8,6 @@
  */
 
 import React from 'react';
-import newsQuery from './news.graphql';
 import Layout from '../../components/Layout';
 
 

@@ -15,8 +15,8 @@
 
 import passport from 'passport';
 import {Strategy as FacebookStrategy} from 'passport-facebook';
-import {User, UserLogin, UserClaim, UserProfile} from './data/models';
-import config from './config';
+import {User, UserLogin, UserClaim, UserProfile} from '../data/models/index';
+import config from '../config';
 
 /**
  * Sign in with Facebook.

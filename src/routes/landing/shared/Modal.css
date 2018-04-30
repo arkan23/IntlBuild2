@@ -787,7 +787,7 @@ perspective effects (not including the modals and the overlay).
 
 .contactName input, .contactPhone input {
   margin-bottom: 35px;
-  width: -webkit-fill-available;
+  width: stretch;
   width: -moz-available;
 }
 
